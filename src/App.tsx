@@ -118,7 +118,7 @@ function transcribe(text: string) {
       ].map(([_syllable, consonant, vowel]) => mapLiakoToASCII(vowel, consonant)).join('')
   ).join(' ')).join('\n');
 }
-function reverseDirection(text: string) {
+function _reverseDirection(text: string) {
   // Just reverse the direction of the characters in the string
   return text.split('').reverse().join('')
 }
@@ -140,8 +140,8 @@ function App() {
           placeholder={placeholder}
           className="w-1/2 h-48 p-2 border border-gray-300 rounded-md overflow-y-scroll"
         />
-        {/* TODO: use the liako font to display this */}
-        <div>{liakoText.split('\n').map((line, idx) => <p key={idx} className={"text-right text-xl" + (text ? "" : " text-gray-400")} style={{fontFamily: "liako"}}>{reverseDirection(line)}</p>)}</div>
+        {/*<div>{liakoText.split('\n').map((line, idx) => <p key={idx} className={"text-right text-xl" + (text ? "" : " text-gray-400")} style={{fontFamily: "liako"}}>{reverseDirection(line)}</p>)}</div>*/}
+        <div>{liakoText.split('\n').map((line, idx) => <p key={idx} className={"text-right text-xl" + (text ? "" : " text-gray-400")} style={{fontFamily: "liako"}}>&#8238;{line}</p>)}</div>
         {/*<div className='block'><p>{liakoText}</p></div>*/}
       </div>
     </div>
