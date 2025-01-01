@@ -128,7 +128,7 @@ function App() {
   
   const placeholder = exampleWords[Math.floor(Math.random() * exampleWords.length)];
   
-  const liakoText = useMemo(() => transcribe(text) || transcribe(placeholder), [text, placeholder]);
+  const liakoText = useMemo(() => text ? transcribe(text) : transcribe(placeholder), [text, placeholder]);
 
   return (
     <div className="w-1/2 m-auto">
