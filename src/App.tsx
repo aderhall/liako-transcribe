@@ -118,10 +118,6 @@ function transcribe(text: string) {
       ].map(([_syllable, consonant, vowel]) => mapLiakoToASCII(vowel, consonant)).join('')
   ).join(' ')).join('\n');
 }
-function _reverseDirection(text: string) {
-  // Just reverse the direction of the characters in the string
-  return text.split('').reverse().join('')
-}
 
 function App() {
   const [text, setText] = useState('')
