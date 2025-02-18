@@ -52,8 +52,12 @@ function mapLiakoToASCII(vowel: string, consonant: string) {
       return '';
     }
   } else {
+    if (consonant === "l") {
+      consonant = "hl"; // "l" is an allophone of "hl" and both spellings should be encoded to "hl"
+    }
     const regConsonant = ["p", "b", "t", "d", "k", "g", "s", "sh", "hl", "dp", "pg", "dg", "kd", "tk", "bt", "hlly"].indexOf(consonant);
     if (regConsonant !== -1) {
+      // Consonant is a modifier
       const baseVowel = getRegularVowelCode(vowel);
       if (!baseVowel) {
         return '';
@@ -68,9 +72,9 @@ function mapLiakoToASCII(vowel: string, consonant: string) {
       }
       return String.fromCharCode(code);
     } else {
+      // Consonant is a standalone character
       let consonantCode = 0;
       switch (consonant) {
-        case 'l':
         case 'lj':
         case 'ly':
           consonantCode = 204;
